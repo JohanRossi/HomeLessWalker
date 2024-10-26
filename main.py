@@ -129,6 +129,8 @@ ALTURA_CHAO = 485
 velocidadePersonagem = 30
 velocidadeObstaculo = 15
 
+tempoMaximoEntreObstaculos = 10
+
 tempoJogo = 0
 
 AUMENTA_DIFICULDADE = pygame.USEREVENT + 1 # Evento para aumentar a dificuldade do jogo
@@ -149,7 +151,12 @@ while True:
 
         if event.type == AUMENTA_DIFICULDADE:
             velocidadePersonagem += 4
-        
+            
+            if tempoMaximoEntreObstaculos > 1100:
+                tempoMaximoEntreObstaculos -= 300
+
+            pygame.time.set_timer(ADICIONA_OBSTACULO, randint(800, tempoMaximoEntreObstaculos))
+
         if event.type == ADICIONA_OBSTACULO:
             obstaculoImage = listaImagensObstaculos[randint(0, len(listaImagensObstaculos) - 1)]
             posicaoX = randint(1280, 1500)
@@ -198,6 +205,16 @@ while True:
 
     # Desenha o tempo de jogo na tela
     tela.blit(textoTempo, (tamanhoTela[0] / 2, 30))
+
+    for obstaculo in listaObstaculo:
+        obstaculo["rect"].x -= 30 * velocidadePersonagem * dt
+
+        if obstaculo["rect"].right < 0:
+            listaObstaculo.remove(obstaculo)
+
+        tela.blit(obstaculo["image"], obstaculo["rect"])
+
+        pygame.draw.rect(tela, (255, 0, 255), obstaculo["rect"], 2)
 
     # Soma o tempo que se passou desde o último frame
     tempoAnimacaoIdle += dt
