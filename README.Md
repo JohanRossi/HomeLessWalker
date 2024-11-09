@@ -1,12 +1,5 @@
-pygame.image.load("assets/Apocalipse/Apocalypce3/Bright/moon.png").convert_alpha(),
-    pygame.image.load("assets/Apocalipse/Apocalypce3/Bright/postapocalypse3.png").convert_alpha(),
-    pygame.image.load("assets/Apocalipse/Apocalypce3/Bright/sand_back.png").convert_alpha(),
-    pygame.image.load("assets/Apocalipse/Apocalypce3/Bright/sand.png").convert_alpha(),
-    pygame.image.load("assets/Apocalipse/Apocalypce3/Bright/sand&objects2.png").convert_alpha(),
-    pygame.image.load("assets/Apocalipse/Apocalypce3/Bright/sand&objects3.png").convert_alpha(),
-    pygame.image.load("assets/Apocalipse/Apocalypce3/Bright/sky.png").convert_alpha(),
+# Homeless Walker Game
 
-    folhaSpritesIdle = pygame.image.load("assets/Homeless_2/Idle_2.png").convert_alpha()
-folhaSpritesWalk = pygame.image.load("assets/Homeless_2/Walk.png").convert_alpha()
-folhaSpritesJump = pygame.image.load("assets/Homeless_2/Jump.png").convert_alpha()
-folhaSpritesRunn = pygame.image.load("assets/Homeless_2/Run.png").convert_alpha()
+## Programa feito no curso de programação em python do Senai.
+
+O jogo contem mobilidade e ações basicas, com ações de movimentação de personagem, pulo e morte. O objetivo é durar o maximo de tempo possível em uma tela onde obstaculos podem tirar sua vida, o jogador precisará desviar dos obstáculos enquanto avança a tela. O jogador tem apenas 3 vidas e a cada 10 segundos sobrevividos, a dificuldade aumenta deixando o personagem mais rapido. Após a perda das 3 vidas, uma mensagem de derrota aparece na tela, possibilitando clicar a tecla enter e reiniciar o jogo. 
